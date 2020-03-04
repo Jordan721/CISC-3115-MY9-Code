@@ -4,7 +4,7 @@ public class Fraction {
 
 	private int denom;
 
-    public Fraction(int numer, int denom){
+    public Fraction(int numer, int denom) {
 
     	this.numer = numer;
 
@@ -14,7 +14,7 @@ public class Fraction {
 
     }
 
-    public Fraction(int numer){
+    public Fraction(int numer) {
     	// one way
     	// this.numer = numer;
     	// this.denom = 1;
@@ -22,7 +22,7 @@ public class Fraction {
 
     }
 
-	public Fraction add(Fraction another){
+	public Fraction add(Fraction another) {
 
 		int newDenom = this.denom * another.denom;
 
@@ -34,7 +34,7 @@ public class Fraction {
 
 	}
 
-	public Fraction multiply(Fraction another){
+	public Fraction multiply(Fraction another) {
 
 		int newDenom = this.denom + another.denom;
 
@@ -45,34 +45,34 @@ public class Fraction {
 		return answer;
 	}
 
-	private Fraction negate(){
+	private Fraction negate() {
 
 		return new Fraction(-numer, denom);
 	}
 
-	public  Fraction subtract(Fraction another){
+	public  Fraction subtract(Fraction another) {
 
 		return  add(another.negate());
 
 	}
 
-	private Fraction reciprocal(){
+	private Fraction reciprocal() {
 
 		return new Fraction(denom, numer);
 	}
 
-	public Fraction divide(Fraction another){
+	public Fraction divide(Fraction another) {
 
 		return  multiply(another.reciprocal());
 
 	}
 
-  public String toString(){
+  public String toString() {
 
 	return numer + (denom!=1? "/" + denom:"");
   }
 
-  public boolean equals(Object obj){
+  public boolean equals(Object obj) {
 
 		boolean results = obj instanceof Fraction;
 
@@ -88,7 +88,7 @@ public class Fraction {
 
   }
 
-	private void simplify(){
+	private void simplify() {
 
 		int divisor = gcd(numer, denom);
 
@@ -109,7 +109,7 @@ public class Fraction {
 	// 		return gcd(b,a%b);
 	// }
 
-	public static void main(String[] args){
+	public static void main(String[] args) {
 		Fraction f1 = new Fraction(7,21);
 
 		Fraction f2 = new Fraction(6,36);
