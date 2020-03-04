@@ -120,28 +120,23 @@ public class Fraction implements Comparable<Fraction> {
 	// }
 
 	public static void main(String[] args) {
-		Fraction f1 = new Fraction(7,21);
+    Fraction[] numbers = {new Fraction(1,2),
+                          new Fraction(2,7),
+                          new Fraction (1),
+                          new Fraction(5,7),
+                          new Fraction(1,8),
+                          new Fraction (6,9),
+                          new Fraction (9,10)};
+      Arrays.sort(numbers);
 
-		Fraction f2 = new Fraction(6,36);
+      System.out.println(Arrays.toString(numbers));
+      Arrays.sort(numbers);
 
-		System.out.println(f1.add(f2));
+      System.out.println(Arrays.toString(numbers));
 
-		f1 = new Fraction(9,56);
+      Comparable<Fraction> comp;
 
-    f2 = new Fraction(1);
-
-    System.out.println(f2.add(f1));
-
-		f1 = new Fraction(1,2);
-
-		f2 = new Fraction(1,100);
-
-		System.out.println(f1.multiply(f2));
-
-		System.out.println(f1.divide(f2));
-
-		System.out.println(f2.divide(f1));
-
+      comp = new Fraction(3);
 	}
 
 }
