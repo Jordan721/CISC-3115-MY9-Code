@@ -12,5 +12,10 @@ public class Inheritance
 
      System.out.println(a);
 
+     Dog dog = (Dog)a;//downcast
+
+     //Dog dog = a;//Willcause an ERROR
+
+     System.out.println(dog.getBreed());
    }
 }
