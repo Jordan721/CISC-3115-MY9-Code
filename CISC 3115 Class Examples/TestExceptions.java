@@ -1,61 +1,59 @@
 import java.util.*;
 public class TestExceptions {
 
+  public static double divide(int x, int y)
+  throws Exception {
+
+    if (y == 0)
+      throw new Exception("Can't perform " + x + "/0");
+
+    return (double) x / y;
+  }
 
 
-	public static double divide(int x, int y)
-				   throws Exception {
+  public static void main(String[] args) {
 
-	   if(y==0)
-	      throw new Exception("Can't perform " + x + "/0");
-
-	   return (double)x/y;
-	}
+    Scanner input = new Scanner(System.in);
 
 
-	public static void main(String[] args) {
+    while (true) {
 
-	   Scanner input = new Scanner(System.in);
+      System.out.print("Enter a number: ");
 
+      int first = input.nextInt();
 
-           while(true) {
+      System.out.print("Enter another number: ");
 
-	      System.out.print("Enter a number: ");
+      int second = input.nextInt();
 
-	      int first = input.nextInt();
+      if (first == 0 && second == 0)
+        break;
+      try {
 
-	      System.out.print("Enter another number: ");
+        double result = divide(first, second);
 
-	      int second = input.nextInt();
+        System.out.println(first + "/" + second +
+          " = " + result);
 
-		if(first==0 && second==0)
-		     break;
-	      try {
+      } catch (Exception e) {
 
-	         double result = divide(first, second);
+        System.err.println(e.getMessage());
 
-		 System.out.println(first + "/" + second
-			             + " = " + result);
-
-	      }catch(Exception e) {
-
-                 System.err.println(e.getMessage());
-
-	      }
+      }
 
 
 
-	   }
-     }
+    }
+  }
 
-     /*
-     int first = input.nextInt();
-     int second = input.nextInt();
-      while(first!=0 || second!=0) {
+  /*
+  int first = input.nextInt();
+  int second = input.nextInt();
+   while(first!=0 || second!=0) {
 
-          ...
+       ...
 
-          first = input.nextInt();
+       first = input.nextInt();
 
-        */
+     */
 }

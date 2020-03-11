@@ -1,22 +1,43 @@
-public class Inheritance
-{
+public class Inheritance {
 
-   public static void main(String[] args) {
+  public static void main(String[] args) {
 
-     Dog d = new Dog("Husky");
+    Dog d = new Dog("Husky");
 
-     Animal a = ne Dog("Lab"); //upcast
+    Animal a = new Dog("Lab"); //upcast will always work
 
-      //ERROR:Animal doesen't neccessarily have a breed
-     System.out.println(a.getBreed());
+    //ERROR:Animal doesen't neccessarily have a breed
+    System.out.println(a.getBreed());
 
-     System.out.println(a);
+    System.out.println(a);
 
-     Dog dog = (Dog)a;//downcast
+    Dog dog = (Dog) a; //downcast doesn't always work
 
-     //Dog dog = a;
-     //Willcause an ERROR
+    System.out.println(dog.getBreed());
 
-     System.out.println(dog.getBreed());
-   }
+
+    Animal[] animals = new Animal[4];
+
+    animals[0] = new Animal("Cat", "Meow");
+
+    animals[1] = new Dog("Poodle");
+
+    animals[2] = new Dog("Lab");
+
+    animals[3] = new Animal("Bird", "Chirp");
+
+    printAllAnimals(animals);
+
+    // dog is a two string methods
+
+    //Dog dog = a;
+    //Will cause an ERROR
+
+  }
+
+  public static void printAllAnimals(Animal[] a) {
+
+    for (int i = 0; i < a.length; i++)
+      System.out.println(a[i]);
+  }
 }

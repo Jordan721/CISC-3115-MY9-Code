@@ -1,138 +1,139 @@
 public class Fraction {
 
-	private int numer;
+  private int numer;
 
-	private int denom;
+  private int denom;
 
-    public Fraction(int numer, int denom) {
+  public Fraction(int numer, int denom) {
 
-    	this.numer = numer;
+    this.numer = numer;
 
-    	this.denon = denom;
+    this.denon = denom;
 
-    	simplify();
+    simplify();
 
-    }
+  }
 
-    public Fraction(int numer) {
-    	// one way
-    	// this.numer = numer;
-    	// this.denom = 1;
-    	this(numer,1);
+  public Fraction(int numer) {
+    // one way
+    // this.numer = numer;
+    // this.denom = 1;
+    this(numer, 1);
 
-    }
+  }
 
-	public Fraction add(Fraction another) {
+  public Fraction add(Fraction another) {
 
-		int newDenom = this.denom * another.denom;
+    int newDenom = this.denom * another.denom;
 
-		int newNumer = this.numer + another.denom + this.denom * another.numer;
+    int newNumer = this.numer + another.denom + this.denom * another.numer;
 
-		Fraction answer = new Fraction(newNumer , newDenom);
+    Fraction answer = new Fraction(newNumer, newDenom);
 
-		return answer;
+    return answer;
 
-	}
+  }
 
-	public Fraction multiply(Fraction another) {
+  public Fraction multiply(Fraction another) {
 
-		int newDenom = this.denom + another.denom;
+    int newDenom = this.denom + another.denom;
 
-		int newNumer = this.numer * another.numer;
+    int newNumer = this.numer * another.numer;
 
-		Fraction answer = new Fraction(newNumer, newDenom);
+    Fraction answer = new Fraction(newNumer, newDenom);
 
-		return answer;
-	}
+    return answer;
+  }
 
-	private Fraction negate() {
+  private Fraction negate() {
 
-		return new Fraction(-numer, denom);
-	}
+    return new Fraction(-numer, denom);
+  }
 
-	public  Fraction subtract(Fraction another) {
+  public Fraction subtract(Fraction another) {
 
-		return  add(another.negate());
+    return add(another.negate());
 
-	}
+  }
 
-	private Fraction reciprocal() {
+  private Fraction reciprocal() {
 
-		return new Fraction(denom, numer);
-	}
+    return new Fraction(denom, numer);
+  }
 
-	public Fraction divide(Fraction another) {
+  public Fraction divide(Fraction another) {
 
-		return  multiply(another.reciprocal());
+    return multiply(another.reciprocal());
 
-	}
+  }
 
   public String toString() {
 
-	return numer + (denom!=1? "/" + denom:"");
+    return numer + (denom != 1 ? "/" + denom : "");
   }
 
   public boolean equals(Object obj) {
 
-		boolean results = obj instanceof Fraction;
+    boolean results = obj instanceof Fraction;
 
-		if(!results)
+    if (!results)
 
-		return  false;
+      return false;
 
-		Fraction another = (Fraction) obj;
+    Fraction another = (Fraction) obj;
 
-		return this.numer == another.numer
+    return this.numer == another.numer
 
-		&& this.denom == another.denom;
+      &&
+      this.denom == another.denom;
 
   }
 
-	private void simplify() {
+  private void simplify() {
 
-		int divisor = gcd(numer, denom);
+    int divisor = gcd(numer, denom);
 
-		numer = numer/divisor;
+    numer = numer / divisor;
 
-		denon = denom/divisor;
+    denon = denom / divisor;
 
-	}
+  }
 
-	// Euclid's algorithm
-	// the reason why its private is because it'll keep calling itself and we dont want the ussers to see it.
-	// the reason why its static is beacuse
-	// private static int gcs(int a, int b){
-	// 	if(b==0)
-	// 		return a;
-	//
-	// 	else
-	// 		return gcd(b,a%b);
-	// }
+  // Euclid's algorithm
+  // the reason why its private is because it'll keep calling itself and we dont want the ussers to see it.
+  // the reason why its static is beacuse
+  // private static int gcs(int a, int b){
+  // 	if(b==0)
+  // 		return a;
+  //
+  // 	else
+  // 		return gcd(b,a%b);
+  // }
 
-	public static void main(String[] args) {
-		Fraction f1 = new Fraction(7,21);
+  public static void main(String[] args) {
+    Fraction f1 = new Fraction(7, 21);
 
-		Fraction f2 = new Fraction(6,36);
+    Fraction f2 = new Fraction(6, 36);
 
-		System.out.println(f1.add(f2));
+    System.out.println(f1.add(f2));
 
-		f1 = new Fraction(9,56);
+    f1 = new Fraction(9, 56);
 
     f2 = new Fraction(1);
 
     System.out.println(f2.add(f1));
 
-		f1 = new Fraction(1,2);
+    f1 = new Fraction(1, 2);
 
-		f2 = new Fraction(1,100);
+    f2 = new Fraction(1, 100);
 
-		System.out.println(f1.multiply(f2));
+    System.out.println(f1.multiply(f2));
 
-		System.out.println(f1.divide(f2));
+    System.out.println(f1.divide(f2));
 
-		System.out.println(f2.divide(f1));
+    System.out.println(f2.divide(f1));
 
-	}
+  }
 
 }
 

@@ -1,36 +1,36 @@
-public class Student{
-	private String first;
+public class Student {
+  private String first;
 
-    private String last;
+  private String last;
 
-    private int exam;
+  private int exam;
 
-    private char letter;
+  private char letter;
 
-    public Student(String first, String last, int exam)
-    throws Exception 
+  public Student(String first, String last, int exam)
+  throws Exception
 
-    {
-    	this.first = first;
-    	this.last = last;
+  {
+    this.first = first;
+    this.last = last;
 
-    	if(exam < 0)
-    		throws new Exception();
+    if (exam < 0)
+      throws new Exception();
 
-    	this.exam = exam;
+    this.exam = exam;
 
-    	evaluateLetterGrade();
-    }
+    evaluateLetterGrade();
+  }
 
-    private void evaluateLetterGrade(){
+  private void evaluateLetterGrade() {
 
-    	letter = exam >=60? 'P' : 'F';
-    }
+    letter = exam >= 60 ? 'P' : 'F';
+  }
 
 }
 
-    // fields
+// fields
 
-    // memeber variables
+// memeber variables
 
-    // instence variables
+// instence variables
