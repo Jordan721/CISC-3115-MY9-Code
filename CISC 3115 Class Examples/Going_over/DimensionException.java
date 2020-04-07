@@ -7,6 +7,7 @@ public class DimensionException extends Exception{
   public DimensionException(double length, double width){
 
     super();
+    
     this.length = length;
     this.width = width;
   }
