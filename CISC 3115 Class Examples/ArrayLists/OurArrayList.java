@@ -1,50 +1,70 @@
-public class OurArrayList{
+public class OurArrayList {
 
   private int numElements;
+  
+  private int[] numbers;
 
-  private int[] arr;
 
-  public OurArrayList(){
+  public OurArrayList() {
+
     numElements = 0;
 
-    arr = new int[10];
+    numbers = new int[10];
   }
 
-  public int size(){
+  public int size() {
+
     return numElements;
+
   }
 
-  public int get(int index){
-    if(index < 0 || index>=size())
-    throw new IndexOutOfBoundsException();
-    return arr[index];
+  public int get(int index) throws Exception {
+    
+    if(index<0 || index>=size())
+      throw new IndexOutOfBoundsException();
+    return numbers[index];
   }
 
-  public int set(int index, int value){
 
-    // replaces the old value at index with a new oldValue
-    //returns the original value
+  public int set(int index, int value)
+        throws Exception {
 
-if(index<0 || index>=size())
-throw new IndexOutOfBoundsException();
-iny oldValue = arr[index];
-    arr[index] = value;
-    return oldValue;
+
+    int old = get(index);
+    numbers[index] = value;
+    return old;
+
+
   }
 
-  public void add(int value){
 
-    if(numElements==arr.length){
+  public void add(int value) {
 
-      int[] temp = new int[arr.length*2];
+    if(numElements==numbers.length)
+      grow();
 
-      for(int i=0; i<arr.length; i++)
-      temp[i] = arr[i];
-
-      arr = temp;
-    }
-
-    arr[numElements] = value;
+    numbers[numElements] = value;
     numElements++;
+
   }
+
+
+  private void grow() {
+
+    int[] temp = new int[numElements*2];
+
+    for(int i=0; i<numbers.length; i++)
+         temp[i] = numbers[i];
+
+    numbers = temp;
+
+  }
+
+
+
+
+
+
+
+
 }

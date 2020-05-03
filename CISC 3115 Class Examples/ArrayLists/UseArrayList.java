@@ -1,29 +1,52 @@
-import java.util.;
-public class UseArrayLists{
+import java.util.*;
 
-  public static void main(String[] args){
+public class UseArrayList {
 
-    ArrayLists<Integer> lists = new ArrayLists<Integer>();
 
-    for(int i=0; i<10; i++)
-    list.add(i+1);
+  public static void main(String[] args) {
+
+    ArrayList<Integer> list = new ArrayList<Integer>();
+
+    //ArrayList<Integer> list = new ArrayList<>();
+
+    for(int i=1; i<=10; i++)
+    list.add(i);
+
+    System.out.println(list);
+    
+  }
+
+  private static void doubleList(ArrayList<Integer> list)
+  {
+    for(int i=0; i<list.size(); i++) {
+      int oldValue = list.get(i);
+      list.set(i, oldValue*2);
+
+    }
 
   }
-  public static  void print(ArrayList<Integer> lists){
 
-    for(int i=0; i<list.size(); i++)
-    System.out.println(list.get(i));
-  }
-
-  public static void addOne(ArrayList<Integer> list){
-
-        for(int i=0; i<list.size(); i++)
-      list.set(i, list.get(i) + 1);
-  }
-  // ArrayLists can only store reference types
-  // Java has wrapper class to convert form primative type to reference type
-  // int -> Integer
-  // double -> Double
-  // char -> Character
-  // boolean -> Boolean
 }
+
+
+/*
+
+primitive           wrapper class
+
+int         Integer
+double        Double
+boolean       Boolean
+char        Character
+long        Long
+short       Short
+
+
+autoboxing -- when Java takes a primitive type
+      and automatically converts it to a wrapper class
+      type.
+
+autounboxing -- when Java takes a wrapper class type and 
+    converts it to a primitive type. 
+
+*/
+
